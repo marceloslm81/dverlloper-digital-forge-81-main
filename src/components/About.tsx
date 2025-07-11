@@ -99,10 +99,10 @@ const About = () => {
               
               <div className="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group">
                 <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-500/30 transition-colors">
-                  <Smartphone className="w-6 h-6 text-blue-500" />
+                  <Rocket className="w-6 h-6 text-blue-500" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3">Aplicações Mobile</h3>
-                <p className="text-gray-400 text-sm">Apps nativos e híbridos para iOS e Android com interface intuitiva.</p>
+                <h3 className="text-lg font-semibold text-white mb-3">Sistema MVP</h3>
+                <p className="text-gray-400 text-sm">Desenvolvimento rápido e validado de sistemas MVP para testar ideias e acelerar o lançamento do seu produto.</p>
               </div>
               
               <div className="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group">

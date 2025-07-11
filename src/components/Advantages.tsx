@@ -41,15 +41,15 @@ const Advantages = () => {
     },
     {
       title: "Excelência Comprovada",
-      description: "Mais de 100 projetos entregues com sucesso. Clientes satisfeitos e resultados mensuráveis em diversos segmentos.",
+      description: "Mais de 50 projetos entregues com sucesso. Clientes satisfeitos e resultados mensuráveis em diversos segmentos.",
       icon: <Star className="w-8 h-8 text-blue-500" />
     }
   ];
 
   const stats = [
     { number: "98%", label: "Taxa de Satisfação", description: "dos nossos clientes" },
-    { number: "100+", label: "Projetos Entregues", description: "com sucesso" },
-    { number: "5+", label: "Anos de Experiência", description: "no mercado digital" },
+    { number: "50+", label: "Projetos Entregues", description: "com sucesso" },
+    { number: "2+", label: "Anos de Experiência", description: "no mercado digital" },
     { number: "24h", label: "Suporte Técnico", description: "disponível sempre" }
   ];
 
@@ -120,7 +120,7 @@ const Advantages = () => {
                   <span className="text-white font-bold">✓</span>
                 </div>
                 <h4 className="text-white font-semibold mb-2">Suporte Gratuito</h4>
-                <p className="text-gray-400 text-sm">3 meses de suporte técnico gratuito após a entrega do projeto.</p>
+                <p className="text-gray-400 text-sm">2 meses de suporte técnico gratuito após a entrega do projeto.</p>
               </div>
               
               <div className="text-center">
