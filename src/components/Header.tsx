@@ -43,6 +43,9 @@ const Header = () => {
             <button onClick={() => scrollToSection('services')} className="text-white hover:text-blue-500 transition-colors">
               Serviços
             </button>
+            <button onClick={() => scrollToSection('automations')} className="text-white hover:text-blue-500 transition-colors">
+              Automações
+            </button>
             <button onClick={() => scrollToSection('portfolio')} className="text-white hover:text-blue-500 transition-colors">
               Portfólio
             </button>
@@ -73,6 +76,9 @@ const Header = () => {
               </button>
               <button onClick={() => scrollToSection('services')} className="text-white hover:text-blue-500 transition-colors text-left">
                 Serviços
+              </button>
+              <button onClick={() => scrollToSection('automations')} className="text-white hover:text-blue-500 transition-colors text-left">
+                Automações
               </button>
               <button onClick={() => scrollToSection('portfolio')} className="text-white hover:text-blue-500 transition-colors text-left">
                 Portfólio
