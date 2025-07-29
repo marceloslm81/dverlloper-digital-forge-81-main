@@ -30,19 +30,22 @@ const About = () => {
                 Sobre a <span className="text-blue-500">Dvelloper</span>
               </h2>
               
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
-                Somos uma agência especializada em desenvolvimento web e soluções digitais inovadoras. 
-                Com anos de experiência no mercado, criamos experiências digitais que conectam 
-                marcas aos seus clientes de forma autêntica e eficaz, sempre focando em resultados 
-                mensuráveis e crescimento sustentável.
-              </p>
-              
-              <p className="text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto">
-                Nossa missão é transformar ideias em soluções digitais extraordinárias, 
-                utilizando as mais modernas tecnologias e metodologias ágeis. Acreditamos 
-                que cada projeto é único e merece uma abordagem personalizada para alcançar 
-                o máximo potencial.
-              </p>
+              <div className="mb-8">
+                <p className="text-xl text-gray-300 mb-6 leading-relaxed max-w-4xl mx-auto">
+                  Olá! Sou <span className="text-blue-500 font-semibold">Marcelo Cavalcanti</span>, 
+                  desenvolvedor e fundador da <span className="text-blue-500">Dvelloper</span>. 
+                  Especializado em desenvolvimento web e soluções digitais inovadoras, 
+                  crio experiências digitais que conectam marcas aos seus clientes de forma 
+                  autêntica e eficaz, sempre focando em resultados mensuráveis e crescimento sustentável.
+                </p>
+                
+                <p className="text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto">
+                  Nossa missão é transformar ideias em soluções digitais extraordinárias, 
+                  utilizando as mais modernas tecnologias e metodologias ágeis. Trabalho 
+                  com uma equipe dedicada e acreditamos que cada projeto é único e merece 
+                  uma abordagem personalizada para alcançar o máximo potencial.
+                </p>
+              </div>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8 mt-16">
@@ -159,7 +162,7 @@ const About = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-                Meu <span className="text-blue-500">Processo de Trabalho</span> Corporativo
+                Meu <span className="text-blue-500">Processo de Trabalho</span>
               </h2>
               <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
                 Metodologia estruturada e transparente para garantir a entrega de 

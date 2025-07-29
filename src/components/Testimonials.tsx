@@ -6,54 +6,54 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: "Maria Silva",
-      role: "CEO, TechStart",
-      text: "A Dvelloper transformou completamente nossa presença digital. O resultado superou todas as expectativas!"
+      name: "Thiago Mendes",
+      role: "Dono da Padaria São João",
+      text: "Cara, o Marcelo salvou minha vida! Minha padaria tava precisando de um site pra vender pães online durante a pandemia. Ele fez tudo rapidinho e agora vendo até pros vizinhos. O cara é muito bom mesmo!"
     },
     {
-      name: "João Santos",
-      role: "Diretor, InnovaCorp",
-      text: "Profissionalismo excepcional e entrega no prazo. Recomendo a Dvelloper para qualquer projeto digital."
+      name: "Amanda Costa",
+      role: "Fisioterapeuta",
+      text: "Sempre tive dificuldade com tecnologia, mas o Marcelo foi super paciente. Fez meu site de fisioterapia do jeito que eu queria, bem simples e bonito. Agora meus pacientes conseguem marcar consulta online sem eu precisar ficar no telefone o dia todo."
     },
     {
-      name: "Ana Costa",
-      role: "Fundadora, DigitalPlus",
-      text: "O sistema desenvolvido revolucionou nossos processos internos. Qualidade e inovação em cada detalhe."
+      name: "Roberto Silva",
+      role: "Mecânico",
+      text: "O site que o Marcelo fez pra minha oficina tá dando muito certo. Os clientes conseguem ver os serviços, preços e até agendar horário. Antes eu perdia muito tempo no telefone, agora é tudo mais organizado."
     },
     {
-      name: "Carlos Mendes",
-      role: "CTO, StartupBR",
-      text: "Desenvolvimento ágil e soluções criativas. A Dvelloper superou nossas expectativas em todos os aspectos."
+      name: "Carla Santos",
+      role: "Professora de Inglês",
+      text: "Precisava de um site pra dar aulas online e o Marcelo entendeu exatamente o que eu queria. Fez tudo bem rápido e agora consigo dar minhas aulas particulares sem sair de casa. Super recomendo!"
     },
     {
-      name: "Fernanda Lima",
-      role: "Gerente de Marketing, FastGrow",
-      text: "Nossa landing page converteu 300% mais depois do trabalho da Dvelloper. Resultados impressionantes!"
+      name: "Diego Oliveira",
+      role: "Personal Trainer",
+      text: "O Marcelo fez um site incrível pra mim! Agora meus alunos conseguem ver meus treinos, marcar horários e até comprar planos online. O cara é muito competente e entrega tudo no prazo."
     },
     {
-      name: "Roberto Alves",
-      role: "Proprietário, ComercioOnline",
-      text: "O e-commerce desenvolvido aumentou nossas vendas em 250%. Investimento que valeu cada centavo."
+      name: "Mariana Lima",
+      role: "Dentista",
+      text: "Meu consultório precisava de uma presença digital e o Marcelo fez exatamente o que eu precisava. O site ficou lindo, profissional e agora meus pacientes conseguem agendar consultas online. Muito obrigada!"
     },
     {
-      name: "Juliana Rocha",
-      role: "Diretora, SaúdeTech",
-      text: "Sistema personalizado que otimizou todos nossos processos. Equipe competente e dedicada."
+      name: "Lucas Ferreira",
+      role: "Advogado",
+      text: "Como advogado, precisava de um site sério e profissional. O Marcelo entendeu isso perfeitamente e fez um site que passa credibilidade. Agora consigo captar mais clientes pela internet."
     },
     {
-      name: "Pedro Oliveira",
-      role: "CEO, LogisticaPro",
-      text: "Solução sob medida que resolveu problemas complexos do nosso negócio. Recomendo sem hesitar."
+      name: "Fernanda Rocha",
+      role: "Designer de Unhas",
+      text: "O Marcelo fez um site lindo pra mim! Agora minhas clientes conseguem ver meus trabalhos, preços e marcar horário online. O site ficou exatamente como eu queria, bem feminino e elegante."
     },
     {
-      name: "Camila Torres",
-      role: "Fundadora, EduOnline",
-      text: "Plataforma educacional desenvolvida com excelência. Nossos alunos adoraram a nova experiência."
+      name: "Gabriel Alves",
+      role: "Barbeiro",
+      text: "Meu barbeiro precisava de um site pra mostrar os cortes e agendar horários. O Marcelo fez tudo certinho e agora consigo organizar melhor minha agenda. O cara é muito bom no que faz!"
     },
     {
-      name: "Ricardo Nunes",
-      role: "Diretor Comercial, VendaMais",
-      text: "CRM personalizado que triplicou nossa produtividade. Parceria que trouxe resultados reais."
+      name: "Patrícia Costa",
+      role: "Consultora de Beleza",
+      text: "O Marcelo fez um site maravilhoso pra minha consultoria de beleza! Agora minhas clientes conseguem ver meus serviços, preços e marcar consultas online. O site ficou lindo e profissional."
     }
   ];
 
