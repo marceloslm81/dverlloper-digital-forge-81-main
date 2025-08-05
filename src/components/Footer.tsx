@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Instagram, Linkedin, MessageCircle } from 'lucide-react';
+import Logo from './Logo';
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -17,10 +18,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
-            <div className="text-2xl font-bold text-white mb-4 flex items-center">
-              <span className="text-blue-500 mr-2">&lt;/&gt;</span>
-              <span className="text-blue-500">D</span>velloper
-            </div>
+            <Logo size="md" showSlogan={true} className="mb-4" />
             <p className="text-gray-400 mb-6">
               Transformando ideias em soluções digitais extraordinárias.
             </p>

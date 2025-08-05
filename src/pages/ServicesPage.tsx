@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import Logo from '@/components/Logo';
 import { useToast } from '@/hooks/use-toast';
 
 const ServicesPage = () => {
@@ -81,10 +82,7 @@ const ServicesPage = () => {
             <ArrowLeft className="w-5 h-5 mr-2" />
             Voltar ao Início
           </button>
-          <div className="text-2xl font-bold text-white flex items-center">
-            <span className="text-blue-500 mr-2">&lt;/&gt;</span>
-            <span className="text-blue-500">D</span>velloper
-          </div>
+          <Logo size="md" />
         </div>
 
         <div className="text-center mb-16">

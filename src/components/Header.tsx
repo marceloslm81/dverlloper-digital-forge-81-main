@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,10 +29,7 @@ const Header = () => {
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-white flex items-center">
-            <span className="text-blue-500 mr-2">&lt;/&gt;</span>
-            <span className="text-blue-500">D</span>velloper
-          </div>
+          <Logo size="md" />
           
           <nav className="hidden md:flex items-center space-x-8">
             <button onClick={() => scrollToSection('home')} className="text-white hover:text-blue-500 transition-colors">

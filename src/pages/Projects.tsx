@@ -4,6 +4,7 @@ import { ArrowLeft, Play, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import Logo from '@/components/Logo';
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -150,10 +151,7 @@ const Projects = () => {
             <ArrowLeft className="w-5 h-5 mr-2" />
             Voltar ao Início
           </button>
-          <div className="text-2xl font-bold text-white flex items-center">
-            <span className="text-blue-500 mr-2">&lt;/&gt;</span>
-            <span className="text-blue-500">D</span>velloper
-          </div>
+          <Logo size="md" />
         </div>
 
         <div className="text-center mb-16">
