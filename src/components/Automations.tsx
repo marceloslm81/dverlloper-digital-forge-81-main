@@ -55,11 +55,6 @@ const Automations = () => {
               key={index} 
               className="bg-gray-900 p-8 rounded-lg border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105 group relative overflow-hidden"
             >
-              {/* Badge "Em Breve" */}
-              <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
-                Em Breve
-              </div>
-              
               <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
                 {automation.icon}
               </div>
@@ -129,9 +124,14 @@ const Automations = () => {
               Nossas soluções de automação com n8n e IA estão chegando em breve. 
               Seja um dos primeiros a experimentar o futuro da automação de negócios.
             </p>
-            <button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-              Em Breve - Lista de Espera
-            </button>
+            <a 
+              href="https://automacoes-dvelloper.netlify.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
+            >
+              Lista de Espera
+            </a>
           </div>
         </div>
       </div>
@@ -139,4 +139,4 @@ const Automations = () => {
   );
 };
 
-export default Automations; 
+export default Automations;
