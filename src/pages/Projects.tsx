@@ -238,6 +238,72 @@ const projects: Project[] = [
       "Site institucional para clínica odontológica com destaque para serviços, profissionais e contato, incluindo formulário de agendamento e CTA para WhatsApp. Tecnologias: React, TypeScript, HTML e CSS.",
     demoVideo: "/lovable-uploads/Dr. Smile.mp4",
   },
+  {
+    title: "Aluguel",
+    category: "Preview",
+    image: "/lovable-uploads/Aluguel.png",
+    description:
+      "Landing page para serviço de aluguel com vitrine e CTA. Tecnologias: React, TypeScript, HTML e CSS.",
+    demoVideo: "/lovable-uploads/Aluguel.mp4",
+  },
+  {
+    title: "Carros e Imóveis",
+    category: "Preview",
+    image: "/lovable-uploads/Carros e Imoveis.png",
+    description:
+      "Site de catálogo para carros e imóveis com destaques e contato. Tecnologias: React, TypeScript, HTML e CSS.",
+    demoVideo: "/lovable-uploads/Carros e Imoveis.mp4",
+  },
+  {
+    title: "Ministério Encontro Betel",
+    category: "Preview",
+    image: "/lovable-uploads/Betel.png",
+    description:
+      "Site institucional do Ministério Encontro Betel com destaques de eventos, mensagens e contato. Tecnologias: React, TypeScript, HTML e CSS.",
+    demoVideo: "/lovable-uploads/betel.mp4",
+  },
+  // Extras do public/lovable-uploads (sem vídeo)
+  {
+    title: "Projeto Marina Silva",
+    category: "Preview",
+    image: "/lovable-uploads/d24d8c2c-e259-4e3c-896b-f7d609b78446.png",
+    description:
+      "Página escura com componente hero e métricas. Tecnologias: React, HTML, CSS e TypeScript.",
+    demoVideo: "/lovable-uploads/Prof, Marina.mp4",
+  },
+  {
+    title: "Projeto Bella Estética",
+    category: "Preview",
+    image: "/lovable-uploads/d27107b7-3f66-4884-a5bb-20a690ac4bfb.png",
+    description:
+      "Seção informativa com tipografia de alto contraste. Tecnologias: HTML, React, CSS e JavaScript.",
+      demoVideo: "/lovable-uploads/Beleza.mp4",
+    // sem vídeo local disponível
+  },
+  {
+    title: "Projeto Dr. Marina Silva",
+    category: "Preview",
+    image: "/lovable-uploads/dfa09563-76d8-427b-9205-5a11291687aa.png",
+    description:
+      "Composição com cards, botões e áreas de conteúdo. Tecnologias: HTML, Recat, CSS e TypeScript.",
+    demoVideo: "/lovable-uploads/Dr. marina.mp4",
+  },
+  {
+    title: "Projeto Cabeleireiro",
+    category: "Preview",
+    image: "/lovable-uploads/f6401d20-98eb-4e2b-a57a-d20e7caea4f0.png",
+    description:
+      "Estrutura modular com blocos de texto e imagem. Tecnologias: HTML, React, CSS e JavaScript.",
+    demoVideo: "/lovable-uploads/Cabeleireiro.mp4",
+  },
+  {
+    title: "Dr. Smile - Clínica Odontológica",
+    category: "Website",
+    image: "/lovable-uploads/Dr. Smile.png",
+    description:
+      "Site institucional para clínica odontológica com destaque para serviços, profissionais e contato, incluindo formulário de agendamento e CTA para WhatsApp. Tecnologias: React, TypeScript, HTML e CSS.",
+    demoVideo: "/lovable-uploads/Dr. Smile.mp4",
+  },
 ];
 
 const Projects: React.FC = () => {
