@@ -74,7 +74,7 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Contato</h4>
             <div className="space-y-2 text-gray-400">
-              <p>contato@dvelloper.com.br</p>
+              <p>atendimento@dvelloper.com.br</p>
               <p>(11) 943219223</p>
               <p>Seg - Sex: 9h às 18h</p>
             </div>

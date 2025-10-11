@@ -27,7 +27,7 @@ ${formData.message}
       `;
 
       // Criar link mailto
-      const mailtoLink = `mailto:contato@dvelloper.com.br?subject=Contato via Site - ${formData.name}&body=${encodeURIComponent(emailBody)}`;
+      const mailtoLink = `mailto:atendimento@dvelloper.com.br?subject=Contato via Site - ${formData.name}&body=${encodeURIComponent(emailBody)}`;
       
       // Abrir cliente de email
       window.location.href = mailtoLink;
@@ -83,7 +83,7 @@ ${formData.message}
                 </div>
                 <div>
                   <h4 className="text-white font-semibold">Email</h4>
-                  <p className="text-gray-400">contato@dvelloper.com.br</p>
+                  <p className="text-gray-400">atendimento@dvelloper.com.br</p>
                 </div>
               </div>
               
