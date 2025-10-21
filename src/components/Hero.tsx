@@ -50,30 +50,40 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Imagem de fundo */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/images/banner1.jpeg" 
+          alt="Banner de fundo" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+      {/* Overlay para escurecer a imagem e melhorar a legibilidade */}
+      <div className="absolute inset-0 bg-black/60 z-[1]"></div>
+      
       {/* Fundo animado com gradientes */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-gray-900 to-black"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/50 to-black/80"></div>
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.8)_2px,transparent_2px),linear-gradient(to_bottom,rgba(0,0,0,0.8)_2px,transparent_2px)] bg-[size:40px_40px] opacity-20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-gray-900/50 to-black/50 z-[2]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/30 to-black/60 z-[2]"></div>
       
       {/* Círculos de luz com blur */}
-      <div className="absolute top-20 left-[20%] w-72 h-72 bg-blue-500/10 rounded-full blur-[120px] animate-pulse"></div>
-      <div className="absolute top-40 right-[20%] w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] animate-pulse delay-1000"></div>
+      <div className="absolute top-20 left-[20%] w-72 h-72 bg-blue-500/10 rounded-full blur-[120px] animate-pulse z-[3]"></div>
+      <div className="absolute top-40 right-[20%] w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] animate-pulse delay-1000 z-[3]"></div>
       
       {/* Efeito de partículas */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-[3]">
         <div className="absolute top-1/4 left-1/4 animate-float-slow">
-          <Code className="w-8 h-8 text-blue-400/30" />
+          <Code className="w-8 h-8 text-blue-400/50" />
         </div>
         <div className="absolute top-1/3 right-1/4 animate-float-slower">
-          <Globe className="w-10 h-10 text-blue-500/30" />
+          <Globe className="w-10 h-10 text-blue-500/50" />
         </div>
         <div className="absolute bottom-1/3 left-1/3 animate-float">
-          <Laptop className="w-12 h-12 text-blue-300/30" />
+          <Laptop className="w-12 h-12 text-blue-300/50" />
         </div>
       </div>
       
-      {/* Grid de fundo animado */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black_70%)]"></div>
+
 
       {/* Robô Animado Futurista */}
       <div 
@@ -213,7 +223,7 @@ const Hero = () => {
         }
       `}</style>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto px-4 text-center relative z-[10]">
         <div className={`max-w-4xl mx-auto transform transition-all duration-1000 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
