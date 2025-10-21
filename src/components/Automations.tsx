@@ -1,5 +1,6 @@
 import React from 'react';
-import { useScrollAnimation } from '../hooks/use-scroll-animation';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { Link } from 'react-router-dom';
 import type { RefCallback } from 'react';
 
 const Automations = () => {
@@ -234,8 +235,8 @@ const Automations = () => {
               </p>
               <div className="relative inline-block group/button">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-75 group-hover/button:opacity-100 transition duration-1000 group-hover/button:duration-200 animate-pulse"></div>
-                <a 
-                  href="/lista-de-espera"
+                <Link 
+                  to="/lista-de-espera"
                   className="relative inline-flex items-center px-8 py-4 bg-gray-900 text-white text-lg font-semibold rounded-full hover:bg-gray-800 transition-all duration-300"
                 >
                   <span className="relative bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -244,7 +245,7 @@ const Automations = () => {
                   <svg className="w-5 h-5 ml-2 text-blue-400 group-hover/button:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

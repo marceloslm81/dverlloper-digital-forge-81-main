@@ -1,8 +1,10 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { ArrowDown, Code, Globe, Laptop } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isBlinking, setIsBlinking] = useState(false);
@@ -199,7 +201,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes robotFloat {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-8px) rotate(1deg); }
@@ -236,9 +238,7 @@ const Hero = () => {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
             <button 
-              onClick={() => {
-                window.location.href = '/catalogo';
-              }}
+              onClick={() => navigate('/catalogo')}
               className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-400 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
             >
               <span className="relative z-10">Catálogo de Serviços</span>

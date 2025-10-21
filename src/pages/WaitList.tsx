@@ -47,6 +47,18 @@ const WaitList = () => {
   const [projectsRef, isProjectsVisible] = useScrollAnimation();
   const [formRef, isFormVisible] = useScrollAnimation();
 
+  // Garantir carregamento correto no mobile
+  React.useEffect(() => {
+    // Forçar um reflow para garantir que a página seja renderizada corretamente
+    document.body.style.display = 'none';
+    setTimeout(() => {
+      document.body.style.display = 'block';
+    }, 0);
+    
+    // Scroll para o topo ao carregar a página
+    window.scrollTo(0, 0);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',

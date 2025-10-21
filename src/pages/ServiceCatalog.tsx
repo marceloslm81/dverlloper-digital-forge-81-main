@@ -8,6 +8,19 @@ const ServiceCatalog = () => {
   const navigate = useNavigate();
 
   const [expandedService, setExpandedService] = React.useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Função para garantir que a página seja carregada corretamente no mobile
+  React.useEffect(() => {
+    // Forçar um reflow para garantir que a página seja renderizada corretamente
+    document.body.style.display = 'none';
+    setTimeout(() => {
+      document.body.style.display = 'block';
+    }, 0);
+    
+    // Scroll para o topo ao carregar a página
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleRequestQuote = (serviceName: string) => {
     const message = `Olá! Gostaria de solicitar um orçamento para o serviço: ${serviceName}`;
@@ -175,25 +188,25 @@ const ServiceCatalog = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_50%_-40%,rgba(59,130,246,0.3),transparent)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_70%_60%,rgba(147,51,234,0.3),transparent)]"></div>
 
-      <div className="container mx-auto px-4 py-12 relative">
-        <div className="flex items-center mb-8 animate-fade-in">
+      <div className="container mx-auto px-4 py-8 sm:py-12 relative">
+        <div className="flex flex-col sm:flex-row items-center mb-8 animate-fade-in">
           <button 
             onClick={() => navigate('/')}
-            className="group flex items-center gap-2 relative px-6 py-2 rounded-full
-              bg-blue-500/10 hover:bg-blue-500/20 transition-all duration-300"
+            className="group flex items-center gap-2 relative px-4 sm:px-6 py-2 rounded-full
+              bg-blue-500/10 hover:bg-blue-500/20 transition-all duration-300 mb-4 sm:mb-0"
           >
-            <ArrowLeft className="w-5 h-5 text-blue-400 group-hover:-translate-x-1 transition-transform" />
-            <span className="text-blue-400 font-medium">Voltar ao Início</span>
+            <ArrowLeft className="w-4 sm:w-5 h-4 sm:h-5 text-blue-400 group-hover:-translate-x-1 transition-transform" />
+            <span className="text-sm sm:text-base text-blue-400 font-medium">Voltar ao Início</span>
             <div className="absolute inset-0 rounded-full bg-blue-400/10 blur-sm group-hover:opacity-100 opacity-0 transition-opacity"></div>
           </button>
-          <div className="ml-6">
+          <div className="sm:ml-6">
             <Logo size="md" />
           </div>
         </div>
 
-        <div className="text-center mb-16 relative">
-          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-500/30 rounded-full blur-3xl"></div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-8 relative inline-block animate-fade-in" style={{ animationDelay: '200ms' }}>
+        <div className="text-center mb-10 sm:mb-16 relative">
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 sm:w-96 h-64 sm:h-96 bg-blue-500/30 rounded-full blur-3xl"></div>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-8 relative inline-block animate-fade-in" style={{ animationDelay: '200ms' }}>
             Catálogo de{" "}
             <span className="relative">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-600 animate-gradient-x">
