@@ -1,7 +1,8 @@
-// Top-level imports
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Play } from "lucide-react";
+import { useScrollAnimation } from '../hooks/use-scroll-animation';
+import type { RefCallback } from 'react';
 
 type Project = {
   title: string;
@@ -309,6 +310,7 @@ const projects: Project[] = [
 const Projects: React.FC = () => {
   const [openVideo, setOpenVideo] = useState<string | null>(null);
   const navigate = useNavigate();
+  const [projectsRef, isProjectsVisible] = useScrollAnimation();
   const [imageSrc, setImageSrc] = useState<Record<string, string>>(
     Object.fromEntries(projects.map((p) => [p.title, p.image]))
   );
@@ -325,18 +327,25 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <section className="py-20 bg-black">
+    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-blue-900/20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_50%_-40%,rgba(59,130,246,0.2),transparent)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_80%_60%,rgba(59,130,246,0.15),transparent)]"></div>
+
+      <section className="py-20 relative">
         <div className="container mx-auto px-4">
           {/* Top bar com link voltar e logo */}
-          <div className="flex items-center gap-6 mb-10">
+          <div className="flex items-center gap-6 mb-10 animate-fade-in">
             <button
               type="button"
               onClick={() => navigate("/")}
-              className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-400 transition-colors"
+              className="group flex items-center gap-2 relative px-6 py-2 rounded-full
+                bg-blue-500/10 hover:bg-blue-500/20 transition-all duration-300"
             >
-              <ArrowLeft className="h-4 w-4" />
-              Voltar ao Início
+              <ArrowLeft className="h-5 w-5 text-blue-400 group-hover:-translate-x-1 transition-transform" />
+              <span className="text-blue-400 font-medium">Voltar ao Início</span>
+              <div className="absolute inset-0 rounded-full bg-blue-400/10 blur-sm group-hover:opacity-100 opacity-0 transition-opacity"></div>
             </button>
             <img
               src="/logo.png"
@@ -346,72 +355,125 @@ const Projects: React.FC = () => {
             />
           </div>
 
-          {/* Título central e descrição como na imagem */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white">
-              Todos os Nossos <span className="text-blue-600">Projetos</span>
+          {/* Título central e descrição */}
+          <div className="text-center mb-16 relative">
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 relative inline-block animate-fade-in" style={{ animationDelay: '200ms' }}>
+              Todos os Nossos{" "}
+              <span className="relative">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 animate-gradient-x">
+                  Projetos
+                </span>
+                <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 opacity-50 animate-pulse"></span>
+              </span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-6">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto relative animate-fade-in" style={{ animationDelay: '400ms' }}>
               Explore nossa coleção completa de projetos desenvolvidos com excelência e
               inovação. Cada projeto representa nossa dedicação em criar soluções digitais
               que transformam negócios.
+              <span className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full blur-3xl bg-gradient-to-r from-blue-500/20 to-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></span>
             </p>
           </div>
 
-          {/* Grid de cards (mantido) */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
+          {/* Grid de cards */}
+          <div 
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            ref={projectsRef as RefCallback<HTMLDivElement>}
+          >
+            {projects.map((project, index) => (
               <article
                 key={project.title}
-                className="group relative overflow-hidden rounded-2xl bg-blue-900 border border-blue-800 hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+                className={`group relative overflow-hidden rounded-3xl bg-gray-900/40 backdrop-blur-xl 
+                  border border-gray-800/50 transition-all duration-700 transform
+                  ${isProjectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="relative aspect-video overflow-hidden rounded-t-2xl">
+                {/* Hover Effects */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl opacity-0 
+                  group-hover:opacity-30 blur-2xl transition-opacity duration-700 z-0"></div>
+                
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 
+                  group-hover:opacity-100 transition-opacity duration-700"></div>
+                
+                {/* Image Container */}
+                <div className="relative aspect-video overflow-hidden rounded-t-3xl">
+                  {/* Background Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent 
+                    opacity-0 group-hover:opacity-90 transition-opacity duration-700 z-10"></div>
+                  
+                  {/* Project Image */}
                   <img
                     src={encodeURI(project.image)}
                     alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700"
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = "/placeholder.svg";
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-blue-900/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <span className="text-sm text-blue-300 uppercase tracking-wide">{project.category}</span>
-                    <h3 className="mt-1 text-lg font-semibold text-white">{project.title}</h3>
+                  
+                  {/* Image Overlay Info */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 
+                    transition-all duration-700 z-20 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
+                    <div className="transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                      <span className="inline-block text-blue-300 text-sm font-semibold mb-2 
+                        drop-shadow-lg bg-black/30 px-3 py-1 rounded-full">
+                        {project.category}
+                      </span>
+                      <h3 className="text-xl font-bold text-white drop-shadow-lg">
+                        {project.title}
+                      </h3>
+                    </div>
                   </div>
+                  
+                  {/* Shine Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 
+                    group-hover:opacity-100 -skew-x-45 translate-x-[-150%] group-hover:translate-x-[150%] 
+                    transition-all duration-700 z-30"></div>
                 </div>
 
-                <div className="p-8 md:p-10 bg-blue-900 border-t border-blue-800 shadow-inner">
+                {/* Project Info */}
+                <div className="p-8 md:p-10 relative">
                   <div className="text-sm font-semibold tracking-wide text-blue-300 uppercase">
                     {project.category}
                   </div>
                   <h3 className="mt-2 text-2xl md:text-3xl font-bold text-white">
                     {project.title}
                   </h3>
-                  <p className="mt-4 text-base md:text-lg text-blue-100/90 leading-relaxed">
+                  <p className="mt-4 text-base md:text-lg text-gray-300 leading-relaxed">
                     {project.description}
                   </p>
 
-                  {/* Botão Live Demo sempre visível: habilitado quando há demoVideo, desabilitado caso contrário */}
+                  {/* Demo Button */}
                   <div className="mt-6">
                     {project.demoVideo ? (
                       <button
                         type="button"
                         onClick={() => setOpenVideo(project.demoVideo!)}
-                        className="inline-flex items-center gap-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white px-5 py-2.5 text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
+                        className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full 
+                          overflow-hidden transition-all duration-500"
                       >
-                        <Play className="h-4 w-4" />
-                        Live Demo
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 
+                          animate-gradient-x transition-all duration-500 group-hover:brightness-125"></div>
+                        
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                          -skew-x-45 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
+                        
+                        <Play className="relative z-10 w-4 h-4 text-white" />
+                        <span className="relative z-10 text-white text-sm font-semibold">Live Demo</span>
+                        
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 
+                          blur-xl opacity-50 group-hover:opacity-75 transition-all duration-500"></div>
                       </button>
                     ) : (
                       <button
                         type="button"
                         disabled
-                        className="inline-flex items-center gap-2 rounded-full bg-blue-800/40 border border-blue-700/50 px-5 py-2.5 text-sm font-semibold text-blue-100/70 cursor-not-allowed"
+                        className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full 
+                          bg-blue-900/40 border border-blue-800/50 backdrop-blur-sm"
                       >
-                        <span className="inline-block h-2 w-2 rounded-full bg-blue-200/70" />
-                        Live Demo
+                        <span className="h-2 w-2 rounded-full bg-blue-400/50 animate-pulse"></span>
+                        <span className="text-sm font-semibold text-blue-300/70">Live Demo</span>
                       </button>
                     )}
                   </div>
@@ -421,46 +483,113 @@ const Projects: React.FC = () => {
           </div>
 
           {/* Rodapé CTA */}
-          <div className="mt-16">
-            <div className="mx-auto max-w-7xl rounded-2xl bg-gray-900/80 border border-white/10 px-6 py-12 sm:px-10 text-center shadow-inner">
-              <h2 className="text-4xl md:text-3xl font-bold text-white">Gostou do que viu?</h2>
-              <p className="mt-4 text-gray-300">
-                Entre em contato conosco e vamos transformar sua ideia em realidade digital.
-              </p>
-              <button
-                type="button"
-                onClick={handleSolicitarOrcamento}
-                className="mt-8 inline-flex items-center justify-center rounded-full bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 text-sm font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
-              >
-                Solicitar Orçamento
-              </button>
+          <div className="mt-24 relative animate-fade-in" style={{ animationDelay: '1200ms' }}>
+            <div className="relative group">
+              {/* Glow Effects */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl opacity-25 
+                group-hover:opacity-50 blur-xl transition-all duration-700"></div>
+              
+              <div className="relative mx-auto max-w-7xl rounded-3xl bg-gray-900/40 backdrop-blur-xl 
+                border border-gray-800/50 px-6 py-12 sm:px-10 text-center overflow-hidden">
+                {/* Animated Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5 opacity-0 
+                  group-hover:opacity-100 transition-opacity duration-700"></div>
+                
+                {/* Floating Particles */}
+                <div className="absolute inset-0">
+                  {[...Array(8)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-2 h-2 bg-blue-500/20 rounded-full"
+                      style={{
+                        left: `${Math.random() * 100}%`,
+                        top: `${Math.random() * 100}%`,
+                        animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`
+                      }}
+                    />
+                  ))}
+                </div>
+                
+                {/* Content */}
+                <div className="relative">
+                  <h2 className="text-4xl md:text-5xl font-bold relative inline-block">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 animate-gradient-x">
+                      Gostou do que viu?
+                    </span>
+                    <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500 
+                      opacity-50 animate-pulse"></span>
+                  </h2>
+                  
+                  <p className="mt-6 text-xl text-gray-300 max-w-2xl mx-auto">
+                    Entre em contato conosco e vamos transformar sua ideia em realidade digital.
+                  </p>
+                  
+                  <button
+                    type="button"
+                    onClick={handleSolicitarOrcamento}
+                    className="group relative inline-flex items-center mt-8 px-10 py-4 rounded-full text-lg font-semibold
+                      overflow-hidden transition-all duration-500 hover:scale-105"
+                  >
+                    {/* Button Background */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 
+                      bg-[length:200%_100%] animate-gradient-x transition-all duration-500 group-hover:brightness-125"></div>
+                    
+                    {/* Shine Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                      -skew-x-45 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-700"></div>
+                    
+                    {/* Button Content */}
+                    <span className="relative z-10 text-white flex items-center gap-2">
+                      Solicitar Orçamento
+                      <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                    </span>
+                    
+                    {/* Glow Effect */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-blue-600 
+                      blur-xl opacity-50 group-hover:opacity-75 transition-all duration-500 group-hover:blur-2xl"></div>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Modal de vídeo (mantido) */}
+      {/* Modal de vídeo */}
       {openVideo && (
         <div
-          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in"
           role="dialog"
           aria-modal="true"
         >
-          <div className="relative w-full max-w-4xl">
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+          
+          {/* Modal Content */}
+          <div className="relative w-full max-w-4xl animate-scale-up">
+            {/* Close Button */}
             <button
               aria-label="Fechar"
               onClick={() => setOpenVideo(null)}
-              className="absolute -top-10 right-0 rounded-md border border-white/20 bg-white/10 px-3 py-1 text-sm hover:bg-white/20 transition-colors"
+              className="group absolute -top-12 right-0 inline-flex items-center gap-2 px-4 py-2 rounded-full
+                bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20
+                transition-all duration-300 hover:scale-105"
             >
-              Fechar
+              <span className="text-sm font-medium text-white/90">Fechar</span>
+              <span className="text-lg leading-none transform group-hover:rotate-90 transition-transform">×</span>
             </button>
-            <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-black">
+            
+            {/* Video Container */}
+            <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-white/10 bg-black">
+              {/* Glow Effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 opacity-30 blur-xl"></div>
+              
               <iframe
                 src={`${openVideo}?autoplay=1&rel=0`}
                 title="Demo do Projeto"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                className="h-full w-full"
+                className="relative z-10 h-full w-full"
               />
             </div>
           </div>
