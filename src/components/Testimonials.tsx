@@ -20,52 +20,36 @@ const Testimonials = () => {
   const [newTestimonial, setNewTestimonial] = useState({
     name: '',
     role: '',
-    text: '',
-    avatarPreview: ''
+    text: ''
   });
 
-  const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const url = URL.createObjectURL(file);
-      setNewTestimonial(prev => ({ ...prev, avatarPreview: url }));
-    }
-  };
-
-  useEffect(() => {
-    return () => {
-      if (newTestimonial.avatarPreview) {
-        URL.revokeObjectURL(newTestimonial.avatarPreview);
-      }
-    };
-  }, [newTestimonial.avatarPreview]);
-
-  const WHATSAPP_PAGE_NUMBER = "5511943219223";
-
   const handleEnviarDepoimento = () => {
-    if (!newTestimonial.text.trim()) {
+    if (!newTestimonial.text.trim() || !newTestimonial.name.trim()) {
       return;
     }
-    const message =
-      `Novo depoimento:\n` +
-      `Nome: ${newTestimonial.name || '-'}\n` +
-      `Função/Empresa: ${newTestimonial.role || '-'}\n` +
-      `Depoimento: ${newTestimonial.text}\n` +
-      `Foto: anexar manualmente no WhatsApp.`;
+    
+    // Adicionar o novo depoimento à lista
+    setTestimonials([
+      ...testimonials,
+      {
+        name: newTestimonial.name,
+        role: newTestimonial.role || "Cliente",
+        text: newTestimonial.text,
+        image: "/placeholder.svg"
+      }
+    ]);
 
-    const whatsappUrl = `https://wa.me/${WHATSAPP_PAGE_NUMBER}?text=${encodeURIComponent(message)}`;
-
-    // Navega direto para o WhatsApp da página (mesma aba)
-    window.location.href = whatsappUrl;
-
-    // Limpeza de estado (não impacta após navegação, mas mantém consistência)
+    // Atualizar o índice para mostrar o novo depoimento
+    setCurrentTestimonial(testimonials.length);
+    
+    // Fechar o modal e limpar o formulário
     setIsOpen(false);
-    setNewTestimonial({ name: '', role: '', text: '', avatarPreview: '' });
+    setNewTestimonial({ name: '', role: '', text: '' });
   };
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [titleRef, isTitleVisible] = useScrollAnimation();
   const [testimonialsRef, isTestimonialsVisible] = useScrollAnimation();
-
+  
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
   };
@@ -73,8 +57,8 @@ const Testimonials = () => {
   const prevTestimonial = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
-
-  const testimonials = [
+  
+  const [testimonials, setTestimonials] = useState([
     {
       name: "Thiago Mendes",
       role: "Barbeiro",
@@ -141,7 +125,7 @@ const Testimonials = () => {
       text: "O Marcelo fez um site maravilhoso pra minha consultoria de beleza! Agora minhas clientes conseguem ver meus serviços, preços e marcar consultas online. O site ficou lindo e profissional.",
       image: "/placeholder.svg"
     }*/
-  ];
+  ]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -212,24 +196,10 @@ const Testimonials = () => {
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
             <div className="relative bg-gray-900/90 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-gray-800/50">
-              <div className="flex flex-col md:flex-row items-center gap-8">
-                <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
-                  {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-                  
-                  {/* Image */}
-                  <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-gray-800/50">
-                    <img 
-                      src={testimonials[currentTestimonial].image || "/placeholder.svg"}
-                      alt={testimonials[currentTestimonial].name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex-1 text-center md:text-left">
+              <div className="flex flex-col items-center gap-6">
+                <div className="flex-1 text-center">
                   <div className="mb-6">
-                    <svg className="w-8 h-8 text-blue-500/50 mb-4" fill="currentColor" viewBox="0 0 32 32">
+                    <svg className="w-8 h-8 text-blue-500/50 mb-4 mx-auto" fill="currentColor" viewBox="0 0 32 32">
                       <path d="M10 8c-2.2 0-4 1.8-4 4v12h8V12h-4c0-2.2 1.8-4 4-4V8zm14 0c-2.2 0-4 1.8-4 4v12h8V12h-4c0-2.2 1.8-4 4-4V8z"/>
                     </svg>
                     <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
@@ -293,31 +263,6 @@ const Testimonials = () => {
 
                 <div className="space-y-4">
                   <div>
-                    <Label htmlFor="testimonial-avatar" className="text-gray-200">Foto (opcional)</Label>
-                    <div className="flex items-center gap-4 mt-1">
-                      <div className="w-16 h-16 rounded-full overflow-hidden border border-gray-700 bg-gray-800">
-                        {newTestimonial.avatarPreview ? (
-                          <img
-                            src={newTestimonial.avatarPreview}
-                            alt="Avatar"
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs">
-                            Sem foto
-                          </div>
-                        )}
-                      </div>
-                      <Input
-                        id="testimonial-avatar"
-                        type="file"
-                        accept="image/*"
-                        onChange={handleAvatarChange}
-                        className="border-gray-700 text-gray-200"
-                      />
-                    </div>
-                  </div>
-                  <div>
                     <Label htmlFor="testimonial-name" className="text-gray-200">Nome</Label>
                     <Input
                       id="testimonial-name"
@@ -359,7 +304,7 @@ const Testimonials = () => {
                       onClick={handleEnviarDepoimento}
                       className="bg-blue-500 hover:bg-blue-600 text-white"
                     >
-                      Enviar pelo WhatsApp
+                      Adicionar Depoimento
                     </Button>
                   </div>
                 </div>

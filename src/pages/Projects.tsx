@@ -149,6 +149,32 @@ const projects: Project[] = [
       "Landing page para loja de tênis com vitrine de produtos e CTA. Tecnologias: React, TypeScript, HTML e CSS.",
     demoVideo: "/lovable-uploads/Tenis.mp4",
   },
+  
+  // Novos projetos adicionados
+  {
+    title: "Barbearia Vintage",
+    category: "Website",
+    image: "/lovable-uploads/Babearia1.png",
+    description:
+      "Site para barbearia com agendamento online, galeria de cortes e apresentação de serviços. Tecnologias: React, TypeScript, HTML e CSS.",
+    demoVideo: "/lovable-uploads/Barbearia1.mp4",
+  },
+  {
+    title: "Clínica de Fisioterapia",
+    category: "Website",
+    image: "/lovable-uploads/Fisioterapia.png",
+    description:
+      "Website para clínica de fisioterapia com apresentação de serviços, profissionais e sistema de agendamento. Tecnologias: React, TypeScript, HTML e CSS.",
+    demoVideo: "/lovable-uploads/Fisioterapia.mp4",
+  },
+  {
+    title: "Auto Mecânica Express",
+    category: "Website",
+    image: "/lovable-uploads/Mecanica.png",
+    description:
+      "Site para oficina mecânica com apresentação de serviços, agendamento online e galeria de trabalhos realizados. Tecnologias: React, TypeScript, HTML e CSS.",
+    demoVideo: "/lovable-uploads/Mecanica.mp4",
+  },
   {
     title: "Doce Encanto",
     category: "Preview",
