@@ -377,7 +377,7 @@ const Projects: React.FC = () => {
 
           {/* Grid de cards */}
           <div 
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             ref={projectsRef as RefCallback<HTMLDivElement>}
           >
             {projects.map((project, index) => (
@@ -385,7 +385,7 @@ const Projects: React.FC = () => {
                 key={project.title}
                 className={`group relative overflow-hidden rounded-3xl bg-gray-900/40 backdrop-blur-xl 
                   border border-gray-800/50 transition-all duration-700 transform
-                  ${isProjectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
+                  opacity-100 translate-y-0`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 {/* Hover Effects */}

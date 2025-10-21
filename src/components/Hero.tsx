@@ -236,10 +236,12 @@ const Hero = () => {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}>
             <button 
-              onClick={() => scrollToSection('contact')}
+              onClick={() => {
+                window.location.href = '/catalogo';
+              }}
               className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-400 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
             >
-              <span className="relative z-10">Solicitar Orçamento</span>
+              <span className="relative z-10">Catálogo de Serviços</span>
               <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl scale-90 group-hover:scale-100"></div>
             </button>
