@@ -315,7 +315,7 @@ Interesse: ${formData.interest}`;
               <div className="relative bg-gray-900 p-4 sm:p-6 rounded-xl">
                 <div className="aspect-w-16 aspect-h-9 mb-4 sm:mb-6 rounded-lg overflow-hidden">
                   <img 
-                    src="/crm-workflow.png" 
+                    src="/lovable-uploads/2.png" 
                     alt="CRM Integration Workflow" 
                     className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
                   />
@@ -340,7 +340,7 @@ Interesse: ${formData.interest}`;
               <div className="relative bg-gray-900 p-4 sm:p-6 rounded-xl">
                 <div className="aspect-w-16 aspect-h-9 mb-4 sm:mb-6 rounded-lg overflow-hidden">
                   <img 
-                    src="/social-automation.png" 
+                    src="/lovable-uploads/3.png" 
                     alt="Social Media Automation" 
                     className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
                   />
@@ -365,7 +365,7 @@ Interesse: ${formData.interest}`;
               <div className="relative bg-gray-900 p-4 sm:p-6 rounded-xl">
                 <div className="aspect-w-16 aspect-h-9 mb-4 sm:mb-6 rounded-lg overflow-hidden">
                   <img 
-                    src="/email-workflow.png" 
+                    src="/lovable-uploads/4.png" 
                     alt="Email Marketing Automation" 
                     className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
                   />
@@ -390,7 +390,7 @@ Interesse: ${formData.interest}`;
               <div className="relative bg-gray-900 p-4 sm:p-6 rounded-xl">
                 <div className="aspect-w-16 aspect-h-9 mb-4 sm:mb-6 rounded-lg overflow-hidden">
                   <img 
-                    src="/whatsapp-workflow.png" 
+                    src="/lovable-uploads/1.png" 
                     alt="WhatsApp Business Automation" 
                     className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
                   />
