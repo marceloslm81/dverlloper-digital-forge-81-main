@@ -42,49 +42,49 @@ const ServiceCatalog = () => {
       title: "Landing Page Simples",
       description: "1 a 3 seções, design limpo, CTA, formulário básico, responsivo",
       fullDescription: "Uma landing page eficiente e objetiva para converter visitantes em leads. Desenvolvemos uma página otimizada com design moderno e limpo, contendo até 3 seções estratégicas, formulário de captura de leads, botões de call-to-action persuasivos e totalmente responsiva para todos os dispositivos. Ideal para campanhas de marketing, lançamentos ou captura de leads para um produto ou serviço específico.",
-      priceRange: "600 – 1.000",
+      priceRange: "600",
       icon: "🌐"
     },
     {
       title: "Portfólio Pessoal/Profissional",
       description: "Páginas: Sobre, Projetos, Contato, galeria e redes sociais",
       fullDescription: "Destaque-se no mercado com um portfólio profissional que impressiona à primeira vista. Desenvolvemos um site personalizado que reflete sua identidade e valoriza seu trabalho, com páginas estratégicas como Sobre (sua história e diferenciais), Projetos (galeria interativa com filtros), Contato (formulário otimizado para conversão), integração com redes sociais e recursos de SEO para ser encontrado por recrutadores e clientes. Design exclusivo e responsivo que funciona perfeitamente em qualquer dispositivo.",
-      priceRange: "1.000 – 1.500",
+      priceRange: "1.000",
       icon: "👨‍💼"
     },
     {
       title: "Site Institucional",
       description: "3 a 6 páginas, SEO básico, mapa do Google, formulário e blog simples",
       fullDescription: "Estabeleça uma presença digital profissional e confiável para sua empresa. Desenvolvemos um site institucional completo com 3 a 6 páginas estratégicas (Home, Sobre, Serviços/Produtos, Blog, Contato), otimização SEO para melhor posicionamento nos buscadores, integração com Google Maps e ferramentas Google, formulário de contato com anti-spam e blog simples para estratégia de conteúdo. Design moderno, responsivo e alinhado com sua identidade visual, transmitindo credibilidade e profissionalismo aos seus clientes.",
-      priceRange: "2.000 – 3.500",
+      priceRange: "1.500",
       icon: "🏢"
     },
     {
       title: "Landing Page Avançada",
       description: "Até 6 seções, design estratégico, integração CRM/e-mail, animações",
       fullDescription: "Maximize suas conversões com uma landing page avançada de alto impacto. Desenvolvemos uma página estratégica com até 6 seções cuidadosamente planejadas, design premium com elementos visuais persuasivos, animações e efeitos que guiam a jornada do usuário, integração direta com seu CRM ou ferramenta de e-mail marketing, A/B testing para otimização contínua e pixel de rastreamento para remarketing. Ideal para campanhas de alto valor, lançamentos importantes ou produtos premium que exigem uma apresentação sofisticada.",
-      priceRange: "2.500 – 5.000",
+      priceRange: "2.000",
       icon: "🚀"
     },
     {
       title: "E-commerce Básico",
       description: "Até 30 produtos, checkout, pagamentos, estoque simples",
       fullDescription: "Comece a vender online com uma loja virtual profissional e funcional. Desenvolvemos um e-commerce completo para até 30 produtos, com catálogo organizado por categorias, sistema de busca intuitivo, carrinho de compras otimizado, checkout simplificado para reduzir abandono, integração com as principais formas de pagamento (cartão, boleto, Pix), controle básico de estoque, painel administrativo intuitivo e relatórios de vendas. Totalmente responsivo e otimizado para conversão, permitindo que você comece a vender imediatamente.",
-      priceRange: "3.000 – 7.000",
+      priceRange: "3.000",
       icon: "🛒"
     },
     {
       title: "Dashboard/Admin Front-End",
       description: "Painéis com gráficos, filtros e autenticação de usuários",
       fullDescription: "Transforme dados em insights acionáveis com um dashboard administrativo personalizado. Desenvolvemos uma interface administrativa completa com painéis visuais intuitivos, gráficos interativos e dinâmicos que atualizam em tempo real, filtros avançados para análise detalhada, sistema de autenticação seguro com diferentes níveis de permissão, exportação de relatórios em múltiplos formatos e design responsivo para acesso em qualquer dispositivo. Ideal para gestores que precisam visualizar métricas importantes e tomar decisões baseadas em dados.",
-      priceRange: "6.000 – 10.000",
+      priceRange: "4.000",
       icon: "📊"
     },
     {
       title: "Sistema Web Completo",
       description: "Login, áreas restritas, integração com APIs, suporte contínuo",
       fullDescription: "Automatize processos complexos e centralize operações com um sistema web personalizado para seu negócio. Desenvolvemos uma solução completa com sistema de login seguro e recuperação de senha, áreas restritas com diferentes níveis de acesso, integração com múltiplas APIs e serviços externos, banco de dados otimizado, processamento em tempo real, backup automático, documentação técnica completa e suporte contínuo. Ideal para empresas que precisam de uma solução digital sob medida para seus processos específicos, aumentando eficiência e reduzindo custos operacionais.",
-      priceRange: "10.000 – 20.000+",
+      priceRange: "7.000",
       icon: "⚙️"
     }
   ];
@@ -95,49 +95,49 @@ const ServiceCatalog = () => {
       title: "Automação Simples (WhatsApp/E-mail)",
       description: "Mensagens automáticas, respostas rápidas, leads via e-mail",
       fullDescription: "Economize tempo e melhore seu atendimento com respostas automáticas inteligentes. Implementamos um sistema que responde instantaneamente às mensagens de WhatsApp e e-mails com informações personalizadas, captura leads automaticamente e os organiza para follow-up. Ideal para pequenas empresas que desejam melhorar o tempo de resposta e nunca mais perder uma oportunidade de negócio.",
-      priceRange: "300 – 700",
+      priceRange: "300",
       icon: "📱"
     },
     {
       title: "Integração de Formulários",
       description: "Conexão com planilhas/CRM, envio automático de notificações",
       fullDescription: "Capture e organize leads sem esforço manual. Criamos integrações que conectam seus formulários diretamente com planilhas Google, Excel online ou seu CRM preferido. O sistema envia notificações instantâneas para sua equipe quando novos leads chegam e pode disparar e-mails de boas-vindas personalizados. Elimine a digitação manual e reduza erros, garantindo que nenhum contato seja perdido.",
-      priceRange: "500 – 1.200",
+      priceRange: "500",
       icon: "📝"
     },
     {
       title: "Automação de Redes Sociais",
       description: "Agendamento, integração com Instagram/Facebook/LinkedIn",
       fullDescription: "Mantenha sua presença digital ativa sem dedicar horas diárias. Implementamos um sistema completo de gerenciamento de redes sociais que permite agendar publicações com antecedência, repostar conteúdo automaticamente, monitorar menções à sua marca e gerar relatórios de performance. Integração com Instagram, Facebook, LinkedIn e outras plataformas para maximizar seu alcance com mínimo esforço.",
-      priceRange: "800 – 2.000",
+      priceRange: "800",
       icon: "📸"
     },
     {
       title: "CRM Automatizado",
       description: "Organização automática de clientes e leads, alertas, relatórios",
       fullDescription: "Transforme seu relacionamento com clientes com um CRM que trabalha por você. Desenvolvemos um sistema que categoriza automaticamente seus leads por interesse e potencial, envia lembretes para follow-up no momento certo, gera relatórios detalhados de conversão e mantém todo o histórico de interações. Aumente suas taxas de conversão e fidelização com um acompanhamento personalizado e consistente.",
-      priceRange: "1.500 – 3.000",
+      priceRange: "1.500",
       icon: "👥"
     },
     {
       title: "Fluxos Avançados (n8n/Make/Zapier)",
       description: "Workflows personalizados, integração entre plataformas",
       fullDescription: "Conecte todas as suas ferramentas em um ecossistema digital integrado. Criamos workflows automatizados complexos usando n8n, Make ou Zapier que sincronizam dados entre diferentes plataformas, executam ações condicionais baseadas em gatilhos específicos e eliminam tarefas repetitivas. Ideal para empresas que utilizam múltiplas ferramentas e desejam um fluxo de trabalho contínuo e eficiente.",
-      priceRange: "2.000 – 5.000",
+      priceRange: "2.000",
       icon: "🔄"
     },
     {
       title: "E-commerce Automatizado",
       description: "Pagamentos, faturas, estoque e notificações automáticas",
       fullDescription: "Gerencie sua loja virtual com eficiência máxima e mínimo esforço. Implementamos um sistema completo que processa pagamentos automaticamente, gera faturas e notas fiscais, atualiza o estoque em tempo real, envia notificações de status do pedido para clientes e alerta sobre produtos com baixo estoque. Inclui relatórios de vendas e integração com plataformas de logística para uma operação verdadeiramente automatizada.",
-      priceRange: "4.000 – 8.000",
+      priceRange: "4.000",
       icon: "🛍️"
     },
     {
       title: "Automação Completa com IA",
       description: "Chatbots inteligentes, relatórios automáticos, integração CRM",
       fullDescription: "Leve seu negócio para o próximo nível com inteligência artificial aplicada. Desenvolvemos uma solução completa com chatbots que aprendem com cada interação, sistemas preditivos que antecipam comportamentos de clientes, geração automática de relatórios analíticos e integração profunda com seu CRM. Inclui dashboards personalizados e alertas inteligentes baseados em padrões identificados pela IA, permitindo decisões estratégicas baseadas em dados.",
-      priceRange: "6.000 – 15.000+",
+      priceRange: "6.000",
       icon: "🤖"
     }
   ];
@@ -148,35 +148,35 @@ const ServiceCatalog = () => {
       title: "Modernização de Sites",
       description: "Atualização visual e técnica de sites existentes, melhorias de performance e responsividade",
       fullDescription: "Revitalize seu site existente sem precisar reconstruí-lo do zero. Nosso serviço de modernização atualiza o design visual para tendências atuais, otimiza o código para melhor performance, implementa responsividade completa para todos os dispositivos e atualiza plugins e frameworks para versões mais seguras. Ideal para empresas que já possuem um site, mas precisam melhorar a experiência do usuário e os resultados de conversão.",
-      priceRange: "1.500 – 5.000",
+      priceRange: "500",
       icon: "✨"
     },
     {
       title: "Plano Mensal Básico",
       description: "Manutenção preventiva, atualizações de segurança, backup semanal, 2h de suporte mensal",
       fullDescription: "Mantenha seu site seguro e funcionando perfeitamente com nosso plano de manutenção básico. Inclui verificações semanais de segurança, atualizações de plugins e sistemas, backup semanal completo, monitoramento de uptime 24/7 e 2 horas mensais de suporte técnico para pequenas alterações ou dúvidas. A tranquilidade de saber que seu site está protegido e sempre atualizado por um custo mensal acessível.",
-      priceRange: "300 – 500/mês",
+      priceRange: "150/mês",
       icon: "🔧"
     },
     {
       title: "Plano Mensal Avançado",
       description: "Manutenção completa, atualizações de conteúdo, otimização SEO, backup diário, 5h de suporte mensal",
       fullDescription: "Maximize o desempenho e segurança do seu site com nosso plano premium. Além de todas as vantagens do plano básico, inclui atualizações de conteúdo ilimitadas, otimização SEO mensal com relatórios de posicionamento, backups diários com retenção de 30 dias, monitoramento avançado de performance e 5 horas mensais de suporte técnico prioritário. Ideal para sites de e-commerce ou portais que exigem alta disponibilidade e atualizações frequentes.",
-      priceRange: "800 – 1.200/mês",
+      priceRange: "600/mês",
       icon: "🛡️"
     },
     {
       title: "Consultoria UX/UI",
       description: "Análise de usabilidade, recomendações de melhorias, wireframes e protótipos",
       fullDescription: "Transforme a experiência dos usuários com seu produto digital através de nossa consultoria especializada. Realizamos análise completa de usabilidade com testes reais, mapeamento da jornada do usuário, identificação de pontos de atrito e oportunidades de melhoria. Entregamos relatório detalhado com recomendações, wireframes interativos e protótipos de alta fidelidade para implementação. Ideal para empresas que desejam aumentar conversões e satisfação dos usuários.",
-      priceRange: "2.000 – 4.000",
+      priceRange: "2.000",
       icon: "🎨"
     },
     {
       title: "Otimização de Performance",
       description: "Análise e melhorias de velocidade, SEO técnico, otimização de imagens e código",
       fullDescription: "Acelere seu site e melhore seu posicionamento nos buscadores com nossa otimização técnica especializada. Realizamos análise completa de performance, implementamos melhorias de velocidade de carregamento, otimizamos imagens e recursos, minificamos código, configuramos cache avançado e realizamos ajustes técnicos de SEO. Inclui relatório comparativo antes/depois com métricas do Google PageSpeed e Core Web Vitals. Ideal para sites que sofrem com baixa performance ou precisam melhorar o ranqueamento.",
-      priceRange: "1.000 – 2.500",
+      priceRange: "1.000",
       icon: "⚡"
     }
   ];
@@ -266,7 +266,7 @@ const ServiceCatalog = () => {
                 )}
                 
                 <div className="flex justify-between items-center mt-2">
-                  <span className="text-blue-400 font-bold">R$ {service.priceRange}</span>
+                  <span className="text-blue-400 font-bold">A partir de R$ {service.priceRange}</span>
                   <button 
                     onClick={() => handleRequestQuote(service.title)}
                     className="text-sm px-3 py-1 bg-blue-600/30 hover:bg-blue-600/50 rounded-full text-blue-300 transition-colors"
@@ -324,7 +324,7 @@ const ServiceCatalog = () => {
                 )}
                 
                 <div className="flex justify-between items-center mt-2">
-                  <span className="text-purple-400 font-bold">R$ {service.priceRange}</span>
+                  <span className="text-purple-400 font-bold">A partir de R$ {service.priceRange}</span>
                   <button 
                     onClick={() => handleRequestQuote(service.title)}
                     className="text-sm px-3 py-1 bg-purple-600/30 hover:bg-purple-600/50 rounded-full text-purple-300 transition-colors"
@@ -382,7 +382,7 @@ const ServiceCatalog = () => {
                 )}
                 
                 <div className="flex justify-between items-center mt-2">
-                  <span className="text-green-400 font-bold">R$ {service.priceRange}</span>
+                  <span className="text-green-400 font-bold">A partir de R$ {service.priceRange}</span>
                   <button 
                     onClick={() => handleRequestQuote(service.title)}
                     className="text-sm px-3 py-1 bg-green-600/30 hover:bg-green-600/50 rounded-full text-green-300 transition-colors"
