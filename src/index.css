@@ -300,4 +300,13 @@ All colors MUST be HSL.
   .animate-float-slower {
     animation: float-slower 6s ease-in-out infinite;
   }
+
+  /* WhatsApp Button 3D Effects */
+  .hover\:rotate-y-12:hover {
+    transform: rotateY(12deg) scale(1.1);
+  }
+
+  .group:hover .group-hover\:rotate-x-6 {
+    transform: rotateX(6deg);
+  }
 }

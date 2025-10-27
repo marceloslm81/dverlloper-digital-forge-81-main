@@ -1,7 +1,169 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/use-scroll-animation';
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { motion, AnimatePresence } from "framer-motion";
 import type { RefCallback } from 'react';
+
+type Project = {
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+};
+
+const AnimatedPortfolio = ({ 
+  projects, 
+  autoplay = true 
+}: { 
+  projects: Project[]; 
+  autoplay?: boolean; 
+}) => {
+  const [active, setActive] = useState(0);
+
+  const handleNext = () => {
+    setActive((prev) => (prev + 1) % projects.length);
+  };
+
+  const handlePrev = () => {
+    setActive((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
+  const isActive = (index: number) => {
+    return index === active;
+  };
+
+  useEffect(() => {
+    if (autoplay) {
+      const interval = setInterval(handleNext, 5000);
+      return () => clearInterval(interval);
+    }
+  }, [autoplay]);
+
+  const randomRotateY = () => {
+    return Math.floor(Math.random() * 21) - 10;
+  };
+
+  return (
+    <div className="max-w-sm md:max-w-6xl mx-auto px-4 md:px-8 lg:px-12 py-20">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div>
+          <div className="relative h-80 w-full">
+            <AnimatePresence>
+              {projects.map((project, index) => (
+                <motion.div
+                  key={project.image}
+                  initial={{
+                    opacity: 0,
+                    scale: 0.9,
+                    z: -100,
+                    rotate: randomRotateY(),
+                  }}
+                  animate={{
+                    opacity: isActive(index) ? 1 : 0.7,
+                    scale: isActive(index) ? 1 : 0.95,
+                    z: isActive(index) ? 0 : -100,
+                    rotate: isActive(index) ? 0 : randomRotateY(),
+                    zIndex: isActive(index)
+                      ? 999
+                      : projects.length + 2 - index,
+                    y: isActive(index) ? [0, -80, 0] : 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 0.9,
+                    z: 100,
+                    rotate: randomRotateY(),
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute inset-0 origin-bottom"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    draggable={false}
+                    className="h-full w-full rounded-3xl object-cover object-center border border-gray-800/50"
+                  />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </div>
+        <div className="flex justify-between flex-col py-4">
+          <motion.div
+            key={active}
+            initial={{
+              y: 20,
+              opacity: 0,
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+            }}
+            exit={{
+              y: -20,
+              opacity: 0,
+            }}
+            transition={{
+              duration: 0.2,
+              ease: "easeInOut",
+            }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-2">
+              {projects[active].title}
+            </h3>
+            <p className="text-sm text-blue-400 font-semibold mb-4">
+              {projects[active].category}
+            </p>
+            <motion.p className="text-lg text-gray-300 mt-8 leading-relaxed">
+              {projects[active].description.split(" ").map((word, index) => (
+                <motion.span
+                  key={index}
+                  initial={{
+                    filter: "blur(10px)",
+                    opacity: 0,
+                    y: 5,
+                  }}
+                  animate={{
+                    filter: "blur(0px)",
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.2,
+                    ease: "easeInOut",
+                    delay: 0.02 * index,
+                  }}
+                  className="inline-block"
+                >
+                  {word}&nbsp;
+                </motion.span>
+              ))}
+            </motion.p>
+          </motion.div>
+          <div className="flex gap-4 pt-12 md:pt-0">
+            <button
+              onClick={handlePrev}
+              className="h-10 w-10 rounded-full bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700/50 flex items-center justify-center group/button transition-all duration-300"
+            >
+              <IconArrowLeft className="h-5 w-5 text-blue-400 group-hover/button:rotate-12 transition-transform duration-300" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="h-10 w-10 rounded-full bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700/50 flex items-center justify-center group/button transition-all duration-300"
+            >
+              <IconArrowRight className="h-5 w-5 text-blue-400 group-hover/button:-rotate-12 transition-transform duration-300" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Portfolio = () => {
   const navigate = useNavigate();
   const projects = [{
@@ -36,7 +198,6 @@ const Portfolio = () => {
     description: "Sistema completo para estúdio de beleza com agendamento online e gestão de procedimentos"
   }];
   const [titleRef, isTitleVisible] = useScrollAnimation();
-  const [projectsRef, isProjectsVisible] = useScrollAnimation();
 
   return (
     <section id="portfolio" className="py-20 relative overflow-hidden bg-black">
@@ -72,66 +233,8 @@ const Portfolio = () => {
           </div>
         </div>
         
-        <div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          ref={projectsRef as RefCallback<HTMLDivElement>}
-        >
-          {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className={`group relative overflow-hidden rounded-3xl bg-gray-900/40 backdrop-blur-xl 
-                border border-gray-800/50 transition-all duration-700 transform
-                ${isProjectsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              {/* Hover Glow Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl opacity-0 
-                group-hover:opacity-30 blur-2xl transition-opacity duration-700 z-0"></div>
-              
-              {/* Border Gradient */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 
-                group-hover:opacity-100 transition-opacity duration-700"></div>
-              
-              {/* Image Container */}
-              <div className="aspect-video overflow-hidden relative rounded-3xl">
-                {/* Overlay Gradient */}
-                {/* Background Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent 
-                  opacity-0 group-hover:opacity-90 transition-opacity duration-700 z-10"></div>
-                
-                {/* Project Image */}
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700" 
-                />
-                
-                {/* Project Info Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 
-                  transition-opacity duration-700 z-20 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
-                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                    <h3 className="text-xl font-bold text-white mb-2 drop-shadow-lg">
-                      {project.title}
-                    </h3>
-                    <span className="inline-block text-blue-300 text-sm font-semibold mb-2 
-                      drop-shadow-lg bg-black/30 px-3 py-1 rounded-full">
-                      {project.category}
-                    </span>
-                    <p className="text-gray-100 text-sm leading-relaxed mt-3 
-                      drop-shadow-lg max-w-prose">
-                      {project.description}
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Shine Effect */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 
-                  group-hover:opacity-100 -skew-x-45 translate-x-[-150%] group-hover:translate-x-[150%] 
-                  transition-all duration-700 z-30"></div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Novo Componente Animado */}
+        <AnimatedPortfolio projects={projects} autoplay={true} />
         
         <div className="text-center mt-24">
           <button 
